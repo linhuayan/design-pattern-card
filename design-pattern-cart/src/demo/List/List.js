@@ -1,5 +1,6 @@
-import $, { data } from 'jquery';
+import $ from 'jquery';
 import { GET_LIST } from '../config/config';
+import createItem from './CreateItem';
 
 export default class List {
   constructor(app) {
@@ -17,8 +18,10 @@ export default class List {
 
   // 生成列表
   initItemList(data) {
-    data.map(itemData => {
+    data.forEach(itemData => {
       // 创建一个 Item 然后 init
+      let item = createItem(this, itemData)
+      item.init()
     })
   }
 
